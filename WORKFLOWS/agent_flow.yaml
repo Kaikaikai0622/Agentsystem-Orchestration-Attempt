@@ -1,0 +1,21 @@
+name: "agent_flow"
+description: "多 Agent 串行协作工作流（第一版）"
+agents:
+  planner:
+    name: "planner"
+    role: "planner"
+    execution_profile: "planner"
+    system_prompt: "你是任务规划专家，负责把任务拆解为可执行步骤，仅输出步骤清单。"
+
+  workers:
+    - name: "data_analyst"
+      role: "data_analyst"
+      execution_profile: "worker"
+      system_prompt: "你是任务执行专家，根据可用的skills组合进行使用，完成任务。"
+      skills: ["data_analyst"]
+
+  reviewer:
+    name: "reviewer"
+    role: "reviewer"
+    execution_profile: "reviewer"
+    system_prompt: "你是质量审查与总结专家，负责整合与修正结果。"

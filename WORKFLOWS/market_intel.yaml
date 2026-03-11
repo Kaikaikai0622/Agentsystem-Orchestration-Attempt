@@ -1,0 +1,18 @@
+name: "market_intel"
+description: "市场情报分析工作流 - 已移除 ai_qa 技能"
+steps:
+
+  # 后续可以添加更多步骤：
+  # - name: "web_search"
+  #   skill: "web_search"
+  #   execution_profile: "worker_cheap"
+  #   params:
+  #     query: "{{query}}"
+  #
+  # - name: "data_clean"
+  #   skill: "data_clean"
+  #   execution_profile: "worker_cheap"
+  #
+  # - name: "market_analysis"
+  #   skill: "market_analysis"
+  #   execution_profile: "analyst_long"

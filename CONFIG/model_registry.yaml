@@ -1,0 +1,104 @@
+# Model Registry Configuration
+# 定义不同 execution_profile 使用的 AI 模型配置
+
+execution_profiles:
+  # Worker Profile: 用于路由、数据清洗、简单任务
+  # 特点：快速、便宜、低延迟
+  worker_cheap:
+    purpose: 路由、清洗、简单任务
+    description: 低延迟、低成本的通用执行，适合快速判断、轻量处理与结构化清洗。
+    provider: MiniMax  # 支持: openai, anthropic, zhipu, custom
+    model: MiniMax-M2.5
+    temperature: 0.1
+    max_tokens: 4000
+    timeout: 30
+    retry_attempts: 3
+    retry_delay: 1
+
+  # Analyst Profile: 用于深度分析、市场情报、报告生成
+  # 特点：能力强、上下文大、支持复杂推理
+  analyst_long:
+    purpose: 深度分析、市场情报、报告生成
+    description: 高质量长文本分析与报告生成，适合复杂推理、策略与结论整合。
+    provider: MiniMax
+    model: MiniMax-M2.1
+    temperature: 0.7
+    max_tokens: 16000
+    timeout: 120
+    retry_attempts: 3
+    retry_delay: 2
+
+  # Multi-agent profiles
+  planner:
+    purpose: 任务规划（多 Agent）
+    description: 负责将用户任务拆解为可执行步骤，输出结构化计划。
+    provider: MiniMax
+    model: MiniMax-M2.5
+    temperature: 0.2
+    max_tokens: 8000
+    timeout: 300
+    retry_attempts: 2
+    retry_delay: 1
+
+  worker:
+    purpose: 任务执行（多 Agent）
+    description: 按计划执行子任务，可调用技能与工具，产出中间结果。
+    provider: moonshot
+    model: kimi-k2.5
+    temperature: 1
+    max_tokens: 8000
+    timeout: 300
+    retry_attempts: 2
+    retry_delay: 1
+
+  reviewer:
+    purpose: 结果审核（多 Agent）
+    description: 复核质量、发现遗漏、修正表达，并汇总最终输出。
+    provider: MiniMax
+    model: MiniMax-M2.5
+    temperature: 0.1
+    max_tokens: 8000
+    timeout: 180
+    retry_attempts: 2
+    retry_delay: 1
+
+# Provider-specific configurations
+providers:
+  openai:
+    sdk: openai
+    api_key_env: WORKER_API_KEY  # worker 使用这个
+    base_url: https://api.openai.com/v1
+
+  # MiniMax OpenAI-compatible API (for reviewer)
+  minimaxi:
+    sdk: openai
+    api_key_env: MINIMAXI_API_KEY
+    base_url: https://api.minimaxi.com/v1
+
+  MiniMax:
+    sdk: anthropic
+    api_key_env: ANTHROPIC_REVIEWER_API_KEY
+    base_url: https://api.minimaxi.com/anthropic
+
+  anthropic:
+    sdk: anthropic
+    api_key_env: ANTHROPIC_REVIEWER_API_KEY
+    base_url: https://api.minimaxi.com/anthropic
+
+  moonshot:
+    sdk: openai
+    api_key_env: MOONSHOT_API_KEY
+    base_url: https://api.moonshot.cn/v1
+
+  zhipu:
+    sdk: http
+    api_key_env: ZHIPU_API_KEY
+    base_url: https://open.bigmodel.cn/api/paas/v4
+
+# Profile 到 Provider 的映射
+profile_mapping:
+  worker_cheap: MiniMax
+  analyst_long: MiniMax
+  planner: MiniMax
+  worker: moonshot
+  reviewer: MiniMax

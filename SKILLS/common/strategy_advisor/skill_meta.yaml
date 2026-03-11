@@ -1,0 +1,35 @@
+name: strategy_advisor
+description: Strategic thinking and business decision guidance for planning, direction-setting, and high-impact decision making
+version: 1.0.0
+author: awesome-llm-apps
+
+# Keywords for skill discovery and routing
+keywords:
+  - strategy
+  - strategic
+  - 战略
+  - business
+  - 商业
+  - decision
+  - 决策
+  - planning
+  - 规划
+  - competitive
+  - 竞争
+  - analysis
+  - 分析
+  - direction
+  - 方向
+  - roadmap
+  - 路线图
+  - recommendation
+  - 建议
+  - trade-off
+  - 权衡
+
+# Categories for organization
+categories:
+  - strategy
+  - business
+  - planning
+  - decision

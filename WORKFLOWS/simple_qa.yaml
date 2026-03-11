@@ -1,0 +1,3 @@
+name: "simple_qa"
+description: "简单的问答工作流 - 已移除 ai_qa 技能"
+steps: []

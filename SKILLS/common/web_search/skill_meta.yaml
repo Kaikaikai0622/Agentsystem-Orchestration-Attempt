@@ -1,0 +1,31 @@
+name: web_search
+description: Web search skill for finding information and searching web content
+version: 1.0.0
+author: Agent System
+
+# Entry point using module:ClassName format
+# 注释掉 entrypoint 以使用注册表路径，取消注释可测试入口点路径
+# entrypoint: "SKILLS.common.web_search.skill:WebSearch"
+
+# Keywords for skill discovery and routing
+keywords:
+  - 搜索
+  - 查找
+  - 网页
+  - google
+  - bing
+  - search
+  - find
+  - 查询
+  - 信息
+  - information
+  - browse
+
+# Categories for organization
+categories:
+  - search
+  - web
+  - information
+
+# Execution profile preference
+execution_profile: worker_cheap

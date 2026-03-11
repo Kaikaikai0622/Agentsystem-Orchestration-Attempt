@@ -1,0 +1,17 @@
+# Agent System Runtime Dependencies
+
+# Environment variables
+python-dotenv==1.0.0
+
+# YAML parsing
+pyyaml==6.0.1
+
+# HTTP requests
+requests==2.31.0
+
+# Anthropic SDK (third-party compatible)
+anthropic==0.39.0
+
+# OpenAI SDK (Moonshot OpenAI-compatible)
+openai>=1.0.0
+

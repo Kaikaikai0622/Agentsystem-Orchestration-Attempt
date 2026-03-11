@@ -1,0 +1,39 @@
+name: data_analyst
+description: Data analysis skill for SQL, Python (pandas), and statistical analysis tasks
+version: 1.0.0
+author: Agent System
+
+# Entry point for Python skills (optional for markdown skills)
+# Format: module.path:ClassName
+# entrypoint: "SKILLS.common.data_analyst.skill:DataAnalyst"
+
+# Keywords for skill discovery and routing
+keywords:
+  - sql
+  - select
+  - join
+  - where
+  - groupby
+  - pandas
+  - dataframe
+  - 统计
+  - 分析
+  - 订单
+  - 数据
+  - 查询
+  - 聚合
+  - correlation
+  - hypothesis
+  - statistics
+
+# Dependencies (optional)
+# dependencies:
+#   - pandas>=1.3.0
+#   - sqlalchemy
+
+# Categories for organization
+categories:
+  - data
+  - analysis
+  - sql
+  - python
